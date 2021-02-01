@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th ="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Enter Student Information</h1>
+    <form method="post" th:action="@{/processInput}" th:object="${student}">
+        ID: <input type="number" th:field ="*{id}"></input><br>
+        Full name: <input type="text" th:field="*{name}"></input><br>
+        Program of Study: <select th:field="*{program}">
+        <th:block th:each="p : ${programs}">
+            <option th:text="${p}" th:value="${p}"/>
+        </th:block>
+        </select>
+        <input type="submit">
+    </form>
+</body>
+</html>
